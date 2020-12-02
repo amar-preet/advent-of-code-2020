@@ -2,25 +2,17 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/amar-preet/advent-of-code-2020/reader"
 )
 
 func main() {
-	lines := strings.Split(string(readFile()), "\n")
+	lines := strings.Split(string(reader.ReadFile("input.txt")), "\n")
 	validPassword(lines)
 	validPasswordByPosition(lines)
-}
-
-func readFile() []byte {
-	content, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	return content
 }
 
 func validPassword(lines []string) {
