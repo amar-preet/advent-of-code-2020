@@ -41,7 +41,6 @@ func partTwo(lines []string) {
 	for i := 0; i < len(lines); i++ {
 		for j := i + 1; j < len(lines); j++ {
 			for k := j + 1; k < len(lines); k++ {
-
 				a, _ := strconv.Atoi(lines[i])
 				b, _ := strconv.Atoi(lines[j])
 				c, _ := strconv.Atoi(lines[k])
