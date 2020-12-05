@@ -1,4 +1,4 @@
-all: env 1 2 3
+all: env 1 2 3 4
 env:
 	@echo "GO ENV"
 	GOPATH=${GOPATH} ${GO} env
@@ -16,5 +16,8 @@ env:
 	@echo "Running Day 3 code.."
 	cd day3; go run main.go		
 	@echo
-	
+4:
+	@echo "Running Day 4 code.."
+	cd day4; go run main.go		
+	@echo	
 	
