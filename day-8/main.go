@@ -47,8 +47,8 @@ func part2(lines []string) {
 		copy(tmpLines, lines)
 		tmpLines[i] = strings.NewReplacer("jmp", "nop", "nop", "jmp").Replace(line)
 
-		if acc, err := halting(tmpLines); err == nil {
-			fmt.Println(acc)
+		if globalCounter, err := halting(tmpLines); err == nil {
+			fmt.Println(globalCounter)
 			break
 		}
 	}
