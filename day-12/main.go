@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 
 	"github.com/amar-preet/advent-of-code-2020/reader"
@@ -59,21 +60,15 @@ func part1(input []string) {
 		}
 	}
 
-	if northSouth < 0 {
-		northSouth = -northSouth
-	}
-	if eastWest < 0 {
-		eastWest = -eastWest
-	}
-	fmt.Println("Manhattan distance:", eastWest+northSouth)
+	fmt.Println("Manhattan distance:", math.Abs(float64(eastWest))+math.Abs(float64(northSouth)))
 }
 
 func part2(input []string) {
 	eastWest := 0
 	northSouth := 0
 
-	wx := 10
-	wy := 1
+	x := 10
+	y := 1
 
 	for _, l := range input {
 		var direction rune
@@ -81,38 +76,32 @@ func part2(input []string) {
 		fmt.Sscanf(l, "%c%d", &direction, &value)
 		switch direction {
 		case 'N':
-			wy += value
+			y += value
 		case 'S':
-			wy -= value
+			y -= value
 		case 'E':
-			wx += value
+			x += value
 		case 'W':
-			wx -= value
+			x -= value
 		case 'L':
 			turn := value / 90
 
 			for i := 0; i < turn; i++ {
-				wx, wy = -wy, wx
+				x, y = -y, x
 			}
 
 		case 'R':
 			turn := value / 90
 
 			for i := 0; i < turn; i++ {
-				wx, wy = wy, -wx
+				x, y = y, -x
 			}
 
 		case 'F':
-			eastWest += value * wx
-			northSouth += value * wy
+			eastWest += value * x
+			northSouth += value * y
 		}
 	}
 
-	if northSouth < 0 {
-		northSouth = -northSouth
-	}
-	if eastWest < 0 {
-		eastWest = -eastWest
-	}
-	fmt.Println(eastWest + northSouth)
+	fmt.Println("Manhattan distance (part2): ", math.Abs(float64(eastWest))+math.Abs(float64(northSouth)))
 }
