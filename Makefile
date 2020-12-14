@@ -5,6 +5,6 @@ env:
 	@echo ${GO} version
 	@echo
 run:
-	l='day-1 day-2 day-3 day-4 day-5 day-6 day-7 day-8 day-9'; \
+	l='day-01 day-02 day-03 day-04 day-05 day-06 day-07 day-08 day-09 day-10 day-11 day-12 day-13'; \
 	for k in $$l; do cd $$k; pwd; echo "Running $$k code.."; go run main.go; cd ..;  \
 	done		  
