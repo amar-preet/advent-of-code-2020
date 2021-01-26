@@ -21,7 +21,6 @@ func main() {
 			memory, _ := strconv.Atoi(line[1])
 			allBinaryNumbers(memory)
 		}
-
 	}
 }
 
@@ -36,16 +35,8 @@ func allBinaryNumbers(length int) []string {
 	var binary string
 	for i := 0; binary != to; i++ {
 		binary = strconv.FormatInt(int64(i), 2)
-		binaries = append(binaries, pad(binary, length))
+		binaries = append(binaries, binary)
 	}
 
 	return binaries
-}
-
-func pad(binary string, length int) string {
-	for len(binary) < length {
-		binary = "0" + binary
-	}
-
-	return binary
 }
